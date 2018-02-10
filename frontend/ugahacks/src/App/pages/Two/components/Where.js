@@ -5,13 +5,163 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
-
+import MenuItem from 'material-ui/Menu/MenuItem';
 
 const styles = ({
   textField: {
     margin: 'auto',
   },
 });
+
+const states = [
+  {
+    value: 'AL',
+  },
+  {
+    value: 'AK',
+  },
+  {
+    value: 'AZ',
+  },
+  {
+    value: 'AR',
+  },
+  {
+    value: 'CA',
+  },
+  {
+    value: 'CO',
+  },
+  {
+    value: 'CT',
+  },
+  {
+    value: 'DE',
+  },
+  {
+    value: 'FL',
+  },
+  {
+    value: 'GA',
+  },
+  {
+    value: 'HI',
+  },
+  {
+    value: 'ID',
+  },
+  {
+    value: 'IL',
+  },
+  {
+    value: 'IN',
+  },
+  {
+    value: 'IA',
+  },
+  {
+    value: 'KS',
+  },
+  {
+    value: 'KY',
+  },
+  {
+    value: 'LA',
+  },
+  {
+    value: 'ME',
+  },
+  {
+    value: 'MD',
+  },
+  {
+    value: 'MA',
+  },
+  {
+    value: 'MI',
+  },
+  {
+    value: 'MN',
+  },
+  {
+    value: 'MS',
+  },
+  {
+    value: 'MO',
+  },
+  {
+    value: 'MT',
+  },
+  {
+    value: 'NE',
+  },
+  {
+    value: 'NV',
+  },
+  {
+    value: 'NH',
+  },
+  {
+    value: 'NJ',
+  },
+  {
+    value: 'NM',
+  },
+  {
+    value: 'NY',
+  },
+  {
+    value: 'NC',
+  },
+  {
+    value: 'ND',
+  },
+  {
+    value: 'OK',
+  },
+  {
+    value: 'OR',
+  },
+  {
+    value: 'PA',
+  },
+  {
+    value: 'RI',
+  },
+  {
+    value: 'SC',
+  },
+  {
+    value: 'SD',
+  },
+  {
+    value: 'TN',
+  },
+  {
+    value: 'TX',
+  },
+  {
+    value: 'UT',
+  },
+  {
+    value: 'VT',
+  },
+  {
+    value: 'VA',
+  },
+  {
+    value: 'WA',
+  },
+  {
+    value: 'WV',
+  },
+  {
+    value: 'WI',
+  },
+  {
+    value: 'WY',
+  }
+];
 
 class Where extends React.Component {
   constructor(props) {
@@ -49,13 +199,20 @@ class Where extends React.Component {
               </Grid>
               <Grid item>
               <TextField
-                style={styles.textField}
                 id="state"
+                select
                 label="State"
+                style={styles.textField}
                 value={this.props.state}
                 onChange={this.handleChange('state')}
                 margin="normal"
-              />
+              >
+                {states.map(option => (
+                  <MenuItem style={{width:200}} key={option.value} value={option.value}>
+                    {option.value}
+                  </MenuItem>
+                ))}
+              </TextField>
             </Grid>
             </Grid>
         </Grid>

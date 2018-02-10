@@ -146,10 +146,10 @@ class HorizontalLinearStepper extends React.Component {
       <div style={styles.loginWrapperStyle}>
       <img src={BackgroundIMG} style={styles.bgImageStyle} />
       <Paper style={styles.loginPaperStyle} elevation={4}>
-      <div style={{backgroundColor:'#fff8f9', padding: 10}}>
+      <div style={{backgroundColor:'#fff8f9', padding:10}}>
 
       <div>
-        <Stepper activeStep={activeStep}>
+        <Stepper style ={{backgroundColor: '#fff8f9'}} activeStep={activeStep}>
           {steps.map((label, index) => {
             const props = {};
             const labelProps = {};

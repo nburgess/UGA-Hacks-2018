@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/Menu/MenuItem';
 
-const styles = ({
+const styles = theme => ({
   textField: {
     margin: 'auto',
   },
@@ -208,7 +208,7 @@ class Where extends React.Component {
                 margin="normal"
               >
                 {states.map(option => (
-                  <MenuItem style={{width:200}} key={option.value} value={option.value}>
+                  <MenuItem style={{width:300}} key={option.value} value={option.value}>
                     {option.value}
                   </MenuItem>
                 ))}

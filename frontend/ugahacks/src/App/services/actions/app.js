@@ -4,7 +4,7 @@ export const SEARCH_RESTAURANTS = 'SEARCH_RESTAURANTS';
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
 
 export function searchRestaurants(offset, latitude, longitude){
-  const promise = api.getZomatoRestaurants(offset, latitude, longitude);
+  const promise = api.fetchZomato(offset, latitude, longitude);
   return{
     type: SEARCH_RESTAURANTS,
     payload: promise

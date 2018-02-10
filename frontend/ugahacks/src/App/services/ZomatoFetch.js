@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
+import zomato from 'zomato';
 
-const APIKey = "ce84c151c3bbfe25dd4c8a29f9da5365";
+const APIKey = 'ce84c151c3bbfe25dd4c8a29f9da5365';
 const url = "https://developers.zomato.com/api/v2.1/";
 
 class ZomatoFetch extends Component {
@@ -11,30 +12,75 @@ class ZomatoFetch extends Component {
     this.state = {
       url: 'https://developers.zomato.com/api/v2.1/',
       location: 'Athens',
-      lat: '38',
-      long: '42',
+      lat: '33.9519',
+      lon: '83.3576',
       apiResponse: '',
     };
     this.getCityID = this.getCityID.bind(this);
   }
+  zomatoCall () {
+
+  }
+
   getCityID () {
     //input parameters
     let location = this.state.location; //this.props.location
-    let lat = this.state.lat;
-    let long = this.state.long;
+    let latitude = this.state.lat;
+    let longitude = this.state.lon;
+    let apiResponse = this.state.apiResponse;
+
+    // var client = zomato.createClient({
+    //   userKey: APIKey, //as obtained from [Zomato API](https://developers.zomato.com/apis) 
+    // });
+
+    // client.getCities({
+    //   q:location, //query by city name 
+    //   lat:latitude, //latitude 
+    //   lon:longitude, //longitude 
+    //   count:"1" // number of maximum result to display 
+    // }, function(err, result){
+    //     if(!err){
+    //       console.log(result);
+    //     }else {
+    //       console.log(err);
+    //     }
+    // });
     
     //api call - fetch
-    let ourUrl = this.state.url + '/' + location;
+    let ourUrl = this.state.url + 'locations?user-key=' + APIKey + '&query=' + location + '&lat=' + latitude + '&lon=' + longitude;
     //fetch url
-    let apiResponse = '';
-    
+    let zomatoResponse = fetch(ourUrl)
+    //   ,{
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //     'Origin': '',
+    //     'user-key': APIKey,
+    //     'Host': ourUrl
+    //   },
+    //   body: JSON.stringify({
+    //     //'user-key': (APIKey),
+    //     'lat': latitude,
+    //     'lon': longitude,
+    //     'query': location
+    //   }),
+    // });
+
+      .then(response => {
+        return response.json();
+      })
+      .then(data =>{
+        let apiResponse = response.json();
+      })    
     //output
     this.setState({
       response: apiResponse
     })
     console.log('Test: ');
     console.log(ourUrl);
-    console.log(apiResponse);
+    console.log('Response: ')
+    console.log(zomatoResponse);
   }
   render() {
     // function getCityID () {

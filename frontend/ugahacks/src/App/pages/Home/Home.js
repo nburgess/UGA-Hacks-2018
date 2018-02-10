@@ -4,6 +4,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
 import { Link } from 'react-router-dom';
+import TextField from 'material-ui/TextField';
+import Grid from 'material-ui/Grid';
 
 import BackgroundIMG from './background.jpg';
 import logo from './food.svg';
@@ -42,6 +44,20 @@ const styles = {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      location: '',
+      price: '',
+      type: ''
+    };
+    this.handleChange = name => event => {
+      this.setState({
+        [name]: event.target.value,
+      });
+    };
+  }
+
   render() {
     return (
     <div style={styles.loginWrapperStyle}>
@@ -67,11 +83,40 @@ class App extends Component {
             </Typography>
           </div>
           <br/>
+
+          <form>
+            <Grid container justify="center" spacing={24}>
+              <Grid item xs={12} sm={6}>
+                  <TextField
+                    id="location"
+                    label="My Location"
+                    value={this.state.name}
+                    onChange={this.handleChange('name')}
+                    margin="normal"
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Button variant="raised" color="secondary">
+                    <Typography variant="subheader">
+                      Get My Location
+                    </Typography>
+                  </Button>
+                </Grid>
+          </Grid>
+         </form>
+
           <div style={{ display: 'flex', justifyContent: 'center'}}>
           <Link to="form" style={{ textDecoration: 'none' }}>
             <Button variant="raised" color="secondary">
               <Typography variant="subheader">
                 Let's Go!
+              </Typography>
+            </Button>
+          </Link>
+          <Link to="test" style={{ textDecoration: 'none' }}>
+            <Button variant="raised" color="secondary">
+              <Typography variant="subheader">
+                Test Our Functions
               </Typography>
             </Button>
           </Link>

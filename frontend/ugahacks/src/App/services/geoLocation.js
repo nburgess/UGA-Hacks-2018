@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import scriptLoader from 'react-async-script-loader';
 
+// scriptLoader(['https://maps.googleapis.com/maps/api/js?key=AIzaSyAYbtCPuL2LBozcTv1mc2fvKOmAPqy5aqM'])
 class geoLocation extends Component {
 	constructor(props){
 		super(props)

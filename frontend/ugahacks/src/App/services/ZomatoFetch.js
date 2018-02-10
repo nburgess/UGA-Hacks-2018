@@ -15,41 +15,45 @@ class ZomatoFetch extends Component {
       lat: '33.9519',
       lon: '83.3576',
       apiResponse: '',
+      fetchNearbyRestaurants: '',
     };
     this.getCityID = this.getCityID.bind(this);
   }
    
    getCityID(){
-    fetchNearbyRestaurants = (latitude, longitude) => {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
-    let options = {
-      method: 'GET',
-      headers: headers
-    };
-    let url = "https://developers.zomato.com/api/v2.1/geocode?lat=" + latitude + "&lon=" + longitude;
-    window.fetch(url, options)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.nearby_restaurants);
-    })
-  }
-   }
-      
-    this.setState({
-      response: apiResponse
-    })
-    console.log('Test: ');
-    console.log(ourUrl);
-    console.log('Response: ')
-    console.log(zomatoResponse);
-    console.log(fetchNearbyRestaurants);
-  }
+      let latitude = this.state.lat;
+      let longitude = this.state.lon;
+      console.log('Lat: ');
+      console.log(latitude);
+      console.log('Lon: ');
+      console.log(longitude);
+
+      var fetchNearbyRestaurants = (latitude, longitude) => {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
+        let options = {
+          method: 'GET',
+          headers: headers
+        };
+        let ourUrl = "https://developers.zomato.com/api/v2.1/geocode?lat=" + latitude + "&lon=" + longitude;
+        fetch(ourUrl, options)
+        .then(response => response.json())
+        .then(data => {
+          console.log('Test: ');
+          console.log(ourUrl);
+          console.log(data.nearby_restaurants);
+        });
+      }
+   }      
+    
+    // this.setState({
+    //   response: apiResponse
+    // })
+    // console.log('Response: ')
+    // console.log(zomatoResponse);
+    // console.log(fetchNearbyRestaurants);
   render() {
-    // function getCityID () {
-    //   console.log(this.state.location);
-    // }
     return(
       <Button color="primary" onClick={this.getCityID}>
         Test
@@ -57,6 +61,7 @@ class ZomatoFetch extends Component {
     )
   }
 }
+
 
 // ZomatoFetch.propTypes = {
 //   location: PropTypes.any.isRequired,

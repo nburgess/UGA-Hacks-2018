@@ -11,6 +11,8 @@ import BackgroundIMG from './background.jpg';
 import logo from './food.svg';
 import fork from './fork1.svg';
 
+
+
 const styles = {
     avatar:{
         margin: 10,
@@ -33,6 +35,7 @@ const styles = {
       display: 'flex',
       flexDirection: 'column',
       margin: 'auto',
+      width: '80%',
       maxWidth: 800,
     },
     loginWrapperStyle: {
@@ -40,6 +43,9 @@ const styles = {
       height: '100vh',
       display: 'flex',
       justifyContent: 'space-around',
+    },
+    textField: {
+      margin: 'auto',
     }
 }
 
@@ -47,11 +53,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: '',
+      city: '',
+      state: '',
       price: '',
       type: ''
     };
     this.handleChange = name => event => {
+      console.log('fdsaf');
       this.setState({
         [name]: event.target.value,
       });
@@ -79,28 +87,141 @@ class App extends Component {
           <br/>
           <div style={{marginLeft:20, marginRight:20, textAlign: 'center'}}>
             <Typography variant="headline">
-              We offer a modern and streamline method to find the best restaurant near you. All it takes is a few seconds to have the dinning experience of a lifetime. 
+              We offer a modern and streamline method to find the best restaurant near you. All it takes is a few seconds to have the dining experience of a lifetime. 
             </Typography>
           </div>
           <br/>
 
           <form>
-            <Grid container justify="center" spacing={24}>
-              <Grid item xs={12} sm={6}>
+            <hr style={{marginLeft:20, marginRight: 20}}/>
+            {/*Where Are You?*/}
+            <Grid container>
+              <Grid item xs= {12}>
+                <Grid container justify="center">
+                  <Grid item>
+                      <Typography variant="headline">
+                        Where Are You?
+                      </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                  <Grid container justify="center" spacing={24}>
+                    <Grid item>
+                      <TextField
+                        style={styles.textField}
+                        id="city"
+                        label="City"
+                        value={this.state.name}
+                        onChange={this.handleChange('name')}
+                        margin="normal"
+                      />
+                    </Grid>
+                    <Grid item>
+                    <TextField
+                      style={styles.textField}
+                      id="state"
+                      label="State"
+                      value={this.state.name}
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </Grid>
+                  </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container justify="center" spacing={24}>
+                  <Grid item>
+                    <Typography variant="subheader">
+                      OR
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs= {12}>
+                <Grid container justify="center">
+                  <Grid item>
+                    <Button color="secondary">
+                      <Typography variant="subheader">
+                        Get My Location
+                      </Typography>
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <hr style={{marginLeft:20, marginRight: 20}}/>
+            {/*What Are You Hungry For?*/}
+            <Grid container>
+              <Grid item xs= {12}>
+                <Grid container justify="center">
+                  <Grid item>
+                      <Typography variant="headline">
+                        What Are You Hungry For?
+                      </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container justify="center" spacing={24}>
+                  <Grid item>
+                    <TextField
+                      style={styles.textField}
+                      id="city"
+                      label="City"
+                      value={this.state.name}
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+            <hr style={{marginLeft:20, marginRight: 20}}/>
+            {/*What is Your Budget?*/}
+            <Grid container>
+              <Grid item xs= {12}>
+                <Grid container justify="center">
+                  <Grid item>
+                      <Typography variant="headline">
+                        What's Your Budget?
+                      </Typography>
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container justify="center" spacing={24}>
+                  <Grid item>
+                    <TextField
+                      style={styles.textField}
+                      id="city"
+                      label="City"
+                      value={this.state.name}
+                      onChange={this.handleChange('name')}
+                      margin="normal"
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+              <Grid>
+                <Grid item xs={12} sm={12}>
                   <TextField
-                    id="location"
-                    label="My Location"
+                    style={styles.textField}
+                    id="price"
+                    label="Budget"
                     value={this.state.name}
                     onChange={this.handleChange('name')}
                     margin="normal"
                   />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Button variant="raised" color="secondary">
-                    <Typography variant="subheader">
-                      Get My Location
-                    </Typography>
-                  </Button>
+                  <TextField
+                    style={styles.textField}
+                    id="type"
+                    label="Food Type"
+                    value={this.state.name}
+                    onChange={this.handleChange('name')}
+                    margin="normal"
+                  />
                 </Grid>
           </Grid>
          </form>
@@ -113,6 +234,7 @@ class App extends Component {
               </Typography>
             </Button>
           </Link>
+          </div>
           <Link to="test" style={{ textDecoration: 'none' }}>
             <Button variant="raised" color="secondary">
               <Typography variant="subheader">
@@ -120,7 +242,6 @@ class App extends Component {
               </Typography>
             </Button>
           </Link>
-          </div>
         </div>
       </Paper>
     </div>

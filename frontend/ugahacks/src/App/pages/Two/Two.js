@@ -131,6 +131,10 @@ class HorizontalLinearStepper extends React.Component {
           return 'Unknown step';
       }
     }
+    //api call functions
+    this.handleSubmit = () => {
+      //do call for the restaurant data
+    };
   }
   static propTypes = {
     classes: PropTypes.object,

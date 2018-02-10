@@ -6,6 +6,7 @@ import Header from './pages/Overlay/Header';
 import Home from './pages/Home/Home';
 import Two from './pages/Two/Two';
 import Test from './services/ZomatoFetch';
+import Locate from './services/geoLocation';
 
 class App extends Component {
   constructor(){
@@ -26,6 +27,7 @@ class App extends Component {
           <Route exact path='/' component={Home}/>
           <Route path='/form' component={Two}/>
           <Route path='/test' component={Test}/>
+          <Roue path='/locate' component={Locate}/>
         </Switch>
       </div>
     )

@@ -1,6 +1,4 @@
-import PlacesAutocomplete from 'react-places-autocomplete'
-import { geocodeByAddress, geocodeByPlaceId } from 'react-places-autocomplete'
-import React from 'react'
+import React, { Component } from 'react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
 class geoLocation extends Component {
@@ -28,11 +26,12 @@ class geoLocation extends Component {
 		}
 
 		return(
-
+			<div>
 			<form onSubmit={this.handleFormSubmit}>
         		<PlacesAutocomplete inputProps={inputProps} />
         		<button type="submit">Submit</button>
       		</form>
+			  </div>
 
 		)
 	}

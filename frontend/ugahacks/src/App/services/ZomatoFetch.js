@@ -71,7 +71,7 @@ class ZomatoFetch extends Component {
         return response.json();
       })
       .then(data =>{
-        let apiResponse = response.json();
+        //let apiResponse = response.json();
       })    
     //output
     this.setState({

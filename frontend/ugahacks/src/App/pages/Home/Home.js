@@ -101,13 +101,6 @@ class App extends Component {
             </Button>
           </Link>
           </div>
-          <Link to="test" style={{ textDecoration: 'none' }}>
-            <Button variant="raised" color="secondary">
-              <Typography variant="subheader">
-                Test Our Functions
-              </Typography>
-            </Button>
-          </Link>
         </div>
       </Paper>
     </div>

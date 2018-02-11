@@ -58,53 +58,53 @@ const types = [
     value: 308
   },
 ];
-const Moods = [
-  {
-    value: 'Bakery'
-  },
-  {
-    value: 'Bar'
-  },
-  {
-    value: 'Bistro'
-  },
-  {
-    value: 'Cafe'
-  },
-  {
-    value: 'Casual Dining'
-  },
-  {
-    value: 'Coffee Shop'
-  },
-  {
-    value: 'Deli'
-  },
-  {
-    value: 'Dessert Parlour'
-  },
-  {
-    value: 'Fast Food'
-  },
-  {
-    value: 'Food Truck'
-  },
-  {
-    value: 'Noodle Shop'
-  },
-  {
-    value: 'Pizzeria'
-  },
-  {
-    value: 'Quick Bites'
-  },
-  {
-    value: 'Sandwich Shop'
-  },
-  {
-    value: 'Wine Bar'
-  },
-];
+// const Moods = [
+//   {
+//     value: 'Bakery'
+//   },
+//   {
+//     value: 'Bar'
+//   },
+//   {
+//     value: 'Bistro'
+//   },
+//   {
+//     value: 'Cafe'
+//   },
+//   {
+//     value: 'Casual Dining'
+//   },
+//   {
+//     value: 'Coffee Shop'
+//   },
+//   {
+//     value: 'Deli'
+//   },
+//   {
+//     value: 'Dessert Parlour'
+//   },
+//   {
+//     value: 'Fast Food'
+//   },
+//   {
+//     value: 'Food Truck'
+//   },
+//   {
+//     value: 'Noodle Shop'
+//   },
+//   {
+//     value: 'Pizzeria'
+//   },
+//   {
+//     value: 'Quick Bites'
+//   },
+//   {
+//     value: 'Sandwich Shop'
+//   },
+//   {
+//     value: 'Wine Bar'
+//   },
+// ];
 
 class What extends React.Component {
   constructor(props) {
@@ -133,12 +133,12 @@ class What extends React.Component {
                 <Grid container justify="center" spacing={24}>
                   <Grid item>
                     <TextField
-                      id="Type"
+                      id="CuisineID"
                       select
-                      label="Type"
+                      label="Cuisines"
                       style={styles.textField}
                       value={this.props.type}
-                      onChange={this.handleChange('Type')}
+                      onChange={this.handleChange('CuisineID')}
                       margin="normal"
                     >
                       {types.map(option => (
@@ -148,11 +148,11 @@ class What extends React.Component {
                       ))}
                     </TextField>
                   </Grid>
-                  <Grid item>
+                  {/* <Grid item>
                     <TextField
                       id="Mood"
                       select
-                      label="Mood"
+                      label="EntityID"
                       style={styles.textField}
                       value={this.props.type}
                       onChange={this.handleChange('Mood')}
@@ -164,7 +164,7 @@ class What extends React.Component {
                         </MenuItem>
                       ))}
                     </TextField>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Grid>
             </Grid>

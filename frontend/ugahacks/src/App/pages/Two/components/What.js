@@ -14,34 +14,34 @@ const styles = ({
 });
 const types = [
   {
-    value: 'bar food'
+    value: 'Asian'
   },
   {
-    value: 'asian'
+    value: 'Bar Food'
   },
   {
-    value: 'vegetarian'
+    value: 'Breakfast'
   },
   {
-    value: 'breakfast'
+    value: 'Cafe'
   },
   {
-    value: 'desserts'
+    value: 'Desserts'
   },
   {
-    value: 'mexican'
+    value: 'French'
   },
   {
-    value: 'cafe'
+    value: 'Italian'
   },
   {
-    value: 'pizza'
+    value: 'Mexican'
   },
   {
-    value: 'italian'
+    value: 'Pizza'
   },
   {
-    value: 'french'
+    value: 'Vegetarian'
   },
 ];
 

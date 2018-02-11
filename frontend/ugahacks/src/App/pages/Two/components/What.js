@@ -5,13 +5,45 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
-
+import MenuItem from 'material-ui/Menu/MenuItem';
 
 const styles = ({
   textField: {
     margin: 'auto',
   },
 });
+const types = [
+  {
+    value: 'bar food'
+  },
+  {
+    value: 'asian'
+  },
+  {
+    value: 'vegetarian'
+  },
+  {
+    value: 'breakfast'
+  },
+  {
+    value: 'desserts'
+  },
+  {
+    value: 'mexican'
+  },
+  {
+    value: 'cafe'
+  },
+  {
+    value: 'pizza'
+  },
+  {
+    value: 'italian'
+  },
+  {
+    value: 'french'
+  },
+];
 
 class What extends React.Component {
   constructor(props) {
@@ -40,13 +72,20 @@ class What extends React.Component {
                 <Grid container justify="center" spacing={24}>
                   <Grid item>
                     <TextField
-                      style={styles.textField}
                       id="type"
-                      label="Type"
+                      select
+                      label="type"
+                      style={styles.textField}
                       value={this.props.type}
                       onChange={this.handleChange('type')}
                       margin="normal"
-                    />
+                    >
+                      {types.map(option => (
+                        <MenuItem style={{width:300}} key={option.value} value={option.value}>
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                   </Grid>
                 </Grid>
               </Grid>

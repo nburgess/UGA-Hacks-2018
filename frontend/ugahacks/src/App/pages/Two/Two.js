@@ -139,6 +139,11 @@ class HorizontalLinearStepper extends React.Component {
     //api call functions
     this.handleSubmit = () => {
       getCityID('33.9519','-83.3576','Athens');
+      /***
+       * DANIEL ADD STUFF HERE
+       * 
+       * **/
+      this.handleNext();
     };
   }
   static propTypes = {

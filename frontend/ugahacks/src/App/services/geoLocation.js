@@ -9,8 +9,9 @@ class geoLocation extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-      adress: 'Athens, GA',
+      address: '',
       coord: '',
+      city: ''
     }
 		this.onChange = (address) => this.setState({address})
 	}
@@ -19,6 +20,7 @@ class geoLocation extends Component {
     console.log('me' + this.state.coord);
     if(this.state.coord != null){
       this.props.handleChange('coord', this.state.coord)
+      this.props.handleChange('city', this.state.address)
       this.props.handleChange('confirmLoc', true)
     }
   }

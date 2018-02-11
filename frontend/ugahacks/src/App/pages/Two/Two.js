@@ -82,6 +82,7 @@ class HorizontalLinearStepper extends React.Component {
       price: '',
       type: '',
       coord: '',
+      CuisineID: '',
       confirmLoc: false,
       activeStep: 0,
       skipped: new Set(),
@@ -140,7 +141,11 @@ class HorizontalLinearStepper extends React.Component {
     this.handleSubmit = () => {
       let latitude = this.state.coord.lat;
       let longitude = this.state.coord.lon;
-      getCityID(latitude,longitude,'Athens');
+      let cityName = this.state.city;
+      let price = this.state.price;
+      let cuisine = this.state.CuisineID;
+      console.log(cuisine);
+      getCityID(latitude,longitude,cityName);
       /***
        * DANIEL ADD STUFF HERE
        * 

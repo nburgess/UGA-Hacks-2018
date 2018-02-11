@@ -67,36 +67,10 @@ class ZomatoFetch extends Component {
 // };
 }
 
-// export function getCityID(lat,long,location){
-//   let latitude = lat;
-//   let longitude = long;
-//   let loc = location;
-
-//   let headers = new Headers();
-//   headers.append('Content-Type', 'application/json');
-//   headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
-//   let options = {
-//     method: 'GET',
-//     headers: headers
-//   };
-//   let ourUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + loc + "&lat=" + latitude + "&lon=" + longitude;
-//   console.log(ourUrl);
-//   let fetchNearbyRestaurants = fetch(ourUrl, options)
-//   .then(response => response.json())
-//   .then(data => {
-//     let cityID = data.location_suggestions[0].city_id;
-//     console.log(cityID);
-//     let entityID = data.location_suggestions[0].entity_id;
-//     console.log(entityID);
-//     let entityType = data.location_suggestions[0].entity_type;
-//     console.log(entityType);
-
-//     //this.setState({cityID:cityID},() => console.log(this.state.cityID));
-//   });
-export function getRestaurant(cuisineID, entityID, entityType, count = 5){
-  let cuisine_ID = cuisineID;
-  let entity_ID = entityID;
-  let entity_Type = entityType;
+export function getCityID(lat,long,location){
+  let latitude = lat;
+  let longitude = long;
+  let loc = location;
 
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
@@ -105,18 +79,20 @@ export function getRestaurant(cuisineID, entityID, entityType, count = 5){
     method: 'GET',
     headers: headers
   };
-  let ourUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" + entity_ID + "&entity_type=" + entity_Type + "&count=" + count + "&cuisines=" + cuisine_ID;
+  let ourUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + loc + "&lat=" + latitude + "&lon=" + longitude;
   console.log(ourUrl);
-  let fetchSpecificRestaurant = fetch(ourUrl, options)
+  let fetchNearbyRestaurants = fetch(ourUrl, options)
   .then(response => response.json())
   .then(data => {
-    let restaurantName = data.restuaurants[0].name;
-    console.log(restaurantName);
-    
+    let cityID = data.location_suggestions[0].city_id;
+    console.log(cityID);
+    let entityID = data.location_suggestions[0].entity_id;
+    console.log(entityID);
+    let entityType = data.location_suggestions[0].entity_type;
+    console.log(entityType);
 
     //this.setState({cityID:cityID},() => console.log(this.state.cityID));
   });
-
 };
 
 export default ZomatoFetch;

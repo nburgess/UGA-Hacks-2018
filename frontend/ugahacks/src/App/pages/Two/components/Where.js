@@ -7,6 +7,8 @@ import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/Menu/MenuItem';
 
+import Geo from '../../../services/geoLocation';
+
 const styles = theme => ({
   textField: {
     margin: 'auto',
@@ -169,7 +171,6 @@ class Where extends React.Component {
     this.state = {
     };
     this.handleChange = name => event => {
-      console.log('loop');
       this.props.handleChange(name, event.target.value);
     };
   }
@@ -185,7 +186,14 @@ class Where extends React.Component {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs= {12}>
+              <Geo 
+                confirmLoc = {this.props.confirmLoc}
+                handleChange = {this.props.handleChange}
+              />
+        </Grid>
+
+        {/* <Grid item xs={12}>
             <Grid container justify="center" spacing={24}>
               <Grid item>
                 <TextField
@@ -235,13 +243,14 @@ class Where extends React.Component {
               </Button>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
     );
   }
 }
 
 Where.propTypes = {
+  confirmLoc: PropTypes.any.isRequred,
   city: PropTypes.any.isRequired,
   state: PropTypes.any.isRequired,
   handleChange: PropTypes.func.isRequired,

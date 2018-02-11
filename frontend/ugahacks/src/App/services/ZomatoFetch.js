@@ -66,5 +66,26 @@ class ZomatoFetch extends Component {
 //   long: PropTypes.any.isRequired
 // };
 
-export default ZomatoFetch;
+export function getCityID(lat,long,location){
+  let latitude = lat;
+  let longitude = long;
+  let loc = location;
 
+  let headers = new Headers();
+  headers.append('Content-Type', 'application/json');
+  headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
+  let options = {
+    method: 'GET',
+    headers: headers
+  };
+  let ourUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + loc + "&lat=" + latitude + "&lon=" + longitude + "&count=20";
+  console.log(ourUrl);
+  let fetchNearbyRestaurants = fetch(ourUrl, options)
+  .then(response => response.json())
+  .then(data => {
+    let cityID = data.location_suggestions[0].city_id;
+    console.log(cityID);
+    //this.setState({cityID:cityID},() => console.log(this.state.cityID));
+  });
+};
+export default ZomatoFetch;

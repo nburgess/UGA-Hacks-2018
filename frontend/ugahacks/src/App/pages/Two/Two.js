@@ -13,6 +13,7 @@ import Where from './components/Where';
 import What from './components/What';
 import Price from './components/Price';
 import ListResults from './components/ListResults';
+import {getCityID} from '../../services/ZomatoFetch';
 
 const theme = createMuiTheme({
   palette: {
@@ -137,7 +138,7 @@ class HorizontalLinearStepper extends React.Component {
     }
     //api call functions
     this.handleSubmit = () => {
-      //do call for the restaurant data
+      getCityID('33.9519','-83.3576','Athens');
     };
   }
   static propTypes = {
@@ -191,14 +192,27 @@ class HorizontalLinearStepper extends React.Component {
                 </Button>
                 {this.state.confirmLoc === true ? 
                 (
-                  <Button
-                    variant="raised"
-                    color="secondary"
-                    onClick={this.handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                  </Button>
+                  <div>
+                    {activeStep === steps.length - 1 ?(
+                      <Button
+                        variant="raised"
+                        color="secondary"
+                        onClick={this.handleSubmit}
+                        className={classes.button}
+                      >
+                        Finish
+                      </Button>
+                    ):(
+                      <Button
+                        variant="raised"
+                        color="secondary"
+                        onClick={this.handleNext}
+                        className={classes.button}
+                      >
+                        Next
+                      </Button>
+                    )}
+                  </div>
                 ):
                 (
                   <Button

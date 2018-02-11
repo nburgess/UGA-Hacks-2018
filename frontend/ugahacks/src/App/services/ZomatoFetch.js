@@ -13,22 +13,19 @@ class ZomatoFetch extends Component {
       url: 'https://developers.zomato.com/api/v2.1/',
       location: 'Athens',
       lat: '33.9519',
-      lon: '83.3576',
+      lon: '-83.3576',
       apiResponse: '',
       fetchNearbyRestaurants: '',
+      cityID: '',
     };
     this.getCityID = this.getCityID.bind(this);
   }
    
    getCityID(){
-      let latitude = this.state.lat;
-      let longitude = this.state.lon;
-      console.log('Lat: ');
-      console.log(latitude);
-      console.log('Lon: ');
-      console.log(longitude);
+        let latitude = this.state.lat;
+        let longitude = this.state.lon;
+        let loc = this.state.location;
 
-      var fetchNearbyRestaurants = (latitude, longitude) => {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
         headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
@@ -36,15 +33,15 @@ class ZomatoFetch extends Component {
           method: 'GET',
           headers: headers
         };
-        let ourUrl = "https://developers.zomato.com/api/v2.1/geocode?lat=" + latitude + "&lon=" + longitude;
-        fetch(ourUrl, options)
+        let ourUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + loc + "&lat=" + latitude + "&lon=" + longitude + "&count=20";
+        console.log(ourUrl);
+        let fetchNearbyRestaurants = fetch(ourUrl, options)
         .then(response => response.json())
         .then(data => {
-          console.log('Test: ');
-          console.log(ourUrl);
-          console.log(data.nearby_restaurants);
+          let cityID = data.location_suggestions[0].city_id;
+          this.setState({cityID:cityID},() => console.log(this.state.cityID));
         });
-      }
+      //}
    }      
     
     // this.setState({

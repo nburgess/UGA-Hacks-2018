@@ -90,7 +90,6 @@ export function getCityID(lat,long,location){
     console.log(entityID);
     let entityType = data.location_suggestions[0].entity_type;
     console.log(entityType);
-
     //this.setState({cityID:cityID},() => console.log(this.state.cityID));
   });
 };

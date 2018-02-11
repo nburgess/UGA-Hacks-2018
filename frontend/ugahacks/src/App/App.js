@@ -7,7 +7,6 @@ import Home from './pages/Home/Home';
 import Two from './pages/Two/Two';
 import Test from './services/ZomatoFetch';
 import Locate from './services/geoLocation';
-import Search from '.services/ZomatoSearch';
 
 class App extends Component {
   constructor(){
@@ -29,7 +28,6 @@ class App extends Component {
           <Route path='/form' component={Two}/>
           <Route path='/test' component={Test}/>
           <Route path='/locate' component={Locate}/>
-          <Route path='search' component={Search}/>
         </Switch>
       </div>
     )

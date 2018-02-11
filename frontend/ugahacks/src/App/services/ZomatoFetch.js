@@ -81,15 +81,20 @@ export function getCityID(lat,long,location){
   };
   let ourUrl = "https://developers.zomato.com/api/v2.1/locations?query=" + loc + "&lat=" + latitude + "&lon=" + longitude;
   console.log(ourUrl);
-  let fetchNearbyRestaurants = fetch(ourUrl, options)
+  /*let fetchNearbyRestaurants*/ return fetch(ourUrl, options)
   .then(response => response.json())
   .then(data => {
-    let cityID = data.location_suggestions[0].city_id;
-    console.log(cityID);
-    let entityID = data.location_suggestions[0].entity_id;
-    console.log(entityID);
-    let entityType = data.location_suggestions[0].entity_type;
-    console.log(entityType);
+    return data.location_suggestions[0].city_id;
+    return data.location_suggestions[0].entity_id;
+    return data.location_suggestions[0].entity_type;
+    //let cityID = data.location_suggestions[0].city_id;
+    //console.log(cityID);
+    //let entityID = data.location_suggestions[0].entity_id;
+    //console.log(entityID);
+    //let entityType = data.location_suggestions[0].entity_type;
+    //console.log(entityType);
+
+    //return console.log(entityID);
     //this.setState({cityID:cityID},() => console.log(this.state.cityID));
   });
 };

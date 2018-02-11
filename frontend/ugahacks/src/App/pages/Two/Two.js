@@ -145,12 +145,12 @@ class HorizontalLinearStepper extends React.Component {
       let latitude = this.state.coord.lat;
       let longitude = this.state.coord.lng;
       let cityName = this.state.city;
-      let entityID = this.state.entityID;
+      //let entityID = this.state.entityID;
       let entityType  = this.state.entityType;
       let price = this.state.price;
       let cuisine = this.state.CuisineID;
-      let data = getCityID(latitude,longitude,cityName);
-      console.log(data);
+      let entityID = getCityID(latitude,longitude,cityName);
+      console.log(entityID);
       getRestaurant(cuisine,'634','city');
 
       /***

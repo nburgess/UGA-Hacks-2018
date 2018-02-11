@@ -14,34 +14,95 @@ const styles = ({
 });
 const types = [
   {
-    value: 'Asian'
+    label: 'American',
+    value: 1
   },
   {
-    value: 'Bar Food'
+    label: 'Asian',
+    value: 3
   },
   {
-    value: 'Breakfast'
+    label: 'Bar Food',
+    value: 227
+  },
+  {
+    label: 'Breakfast',
+    value: 182
+  },
+  {
+    label: 'Cafe',
+    value: 30
+  },
+  {
+    label: 'Desserts',
+    value: 100
+  },
+  {
+    label: 'Fast Food',
+    value: 40
+  },
+  {
+    label: 'Italian',
+    value: 55
+  },
+  {
+    label: 'Mexican',
+    value: 73
+  },
+  {
+    label: 'Pizza',
+    value: 82
+  },
+  {
+    label: 'Vegetarian',
+    value: 308
+  },
+];
+const Moods = [
+  {
+    value: 'Bakery'
+  },
+  {
+    value: 'Bar'
+  },
+  {
+    value: 'Bistro'
   },
   {
     value: 'Cafe'
   },
   {
-    value: 'Desserts'
+    value: 'Casual Dining'
   },
   {
-    value: 'French'
+    value: 'Coffee Shop'
   },
   {
-    value: 'Italian'
+    value: 'Deli'
   },
   {
-    value: 'Mexican'
+    value: 'Dessert Parlour'
   },
   {
-    value: 'Pizza'
+    value: 'Fast Food'
   },
   {
-    value: 'Vegetarian'
+    value: 'Food Truck'
+  },
+  {
+    value: 'Noodle Shop'
+  },
+  {
+    value: 'Pizzeria'
+  },
+  {
+    value: 'Quick Bites'
+  },
+  {
+    value: 'Sandwich Shop'
+  },
+  {
+    value: 'Wine Bar'
   },
 ];
 
@@ -72,15 +133,32 @@ class What extends React.Component {
                 <Grid container justify="center" spacing={24}>
                   <Grid item>
                     <TextField
-                      id="type"
+                      id="Type"
                       select
-                      label="type"
+                      label="Type"
                       style={styles.textField}
                       value={this.props.type}
-                      onChange={this.handleChange('type')}
+                      onChange={this.handleChange('Type')}
                       margin="normal"
                     >
                       {types.map(option => (
+                        <MenuItem style={{width:300}} key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  </Grid>
+                  <Grid item>
+                    <TextField
+                      id="Mood"
+                      select
+                      label="Mood"
+                      style={styles.textField}
+                      value={this.props.type}
+                      onChange={this.handleChange('Mood')}
+                      margin="normal"
+                    >
+                      {Moods.map(option => (
                         <MenuItem style={{width:300}} key={option.value} value={option.value}>
                           {option.value}
                         </MenuItem>

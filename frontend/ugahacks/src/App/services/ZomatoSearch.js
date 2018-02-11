@@ -86,8 +86,20 @@ export function getRestaurant(cuisineID, entityID, entityType, count = 5){
   let fetchSpecificRestaurant = fetch(ourUrl, options)
   .then(response => response.json())
   .then(data => {
-    let restaurantName = data.restaurants[0].restaurant.name;
-    console.log(restaurantName);
+    console.log("=================================")
+    for (var i = 0 ; i < 5 ; i++){
+    let restaurantName = data.restaurants[i].restaurant.name;
+    console.log("Name : " + restaurantName);
+    let address = data.restaurants[i].restaurant.location.address;
+    console.log("Address : " + address);
+    let price = data.restaurants[i].restaurant.average_cost_for_two;
+    console.log("Price : "+ price);
+    console.log("EntityID : " + entity_ID);
+    console.log("=================================")
+  }
+
+
+
     
 
     //this.setState({cityID:cityID},() => console.log(this.state.cityID));

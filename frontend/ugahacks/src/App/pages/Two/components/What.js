@@ -7,11 +7,12 @@ import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/Menu/MenuItem';
 
-const styles = ({
-  textField: {
-    margin: 'auto',
+const styles = {
+  customWidth: {
+    width: 150,
   },
-});
+};
+
 const types = [
   {
     label: 'American',
@@ -130,13 +131,13 @@ class What extends React.Component {
                 </Grid>
               </Grid>
               <Grid item xs={12}>
-                <Grid container justify="center" spacing={24}>
+                <Grid container justify="center" spacing={54}>
                   <Grid item>
                     <TextField
                       id="CuisineID"
                       select
                       label="Cuisines"
-                      style={styles.textField}
+                      style={styles.customWidth}
                       value={this.props.type}
                       onChange={this.handleChange('CuisineID')}
                       margin="normal"

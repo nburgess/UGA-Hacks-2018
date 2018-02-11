@@ -14,6 +14,7 @@ import What from './components/What';
 import Price from './components/Price';
 import ListResults from './components/ListResults';
 import {getCityID} from '../../services/ZomatoFetch';
+import {getRestaurant} from '../../services/ZomatoSearch'; 
 
 const theme = createMuiTheme({
   palette: {
@@ -146,6 +147,7 @@ class HorizontalLinearStepper extends React.Component {
       let cuisine = this.state.CuisineID;
       console.log(cuisine);
       getCityID(latitude,longitude,cityName);
+      getRestaurant(cuisine,'634','city');
       /***
        * DANIEL ADD STUFF HERE
        * 

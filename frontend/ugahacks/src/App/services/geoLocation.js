@@ -9,7 +9,7 @@ class geoLocation extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-      adress: 'Athens, GA',
+      address: 'Athens, GA',
       coord: '',
     }
 		this.onChange = (address) => this.setState({address})

@@ -12,6 +12,7 @@ import BackgroundIMG from '../../components/background.jpg';
 import Where from './components/Where';
 import What from './components/What';
 import Price from './components/Price';
+import ListResults from './components/ListResults';
 
 const theme = createMuiTheme({
   palette: {
@@ -79,11 +80,13 @@ class HorizontalLinearStepper extends React.Component {
       state: '',
       price: '',
       type: '',
+      coord: '',
+      confirmLoc: false,
       activeStep: 0,
       skipped: new Set(),
     };
     this.handleChange = (name, value) => {
-      console.log(name);
+      console.log(this.state);
       if(name!=null){
       this.setState({
         [name]: value,
@@ -108,6 +111,7 @@ class HorizontalLinearStepper extends React.Component {
         case 0:
           return( 
             <Where
+              confirmLoc={this.state.confirmLoc}
               city={this.state.city}
               state={this.state.state}
               handleChange={this.handleChange}
@@ -149,10 +153,18 @@ class HorizontalLinearStepper extends React.Component {
       <MuiThemeProvider theme={theme}>
       <div style={styles.loginWrapperStyle}>
       <img src={BackgroundIMG} style={styles.bgImageStyle} />
+      
+      {activeStep === steps.length ? 
+      //LAST Step
+      (
+      <ListResults />
+      ) : (
+      //other steps
       <Paper style={styles.loginPaperStyle} elevation={4}>
       <div style={{backgroundColor:'#fff8f9', padding:10}}>
-
+    
       <div>
+
         <Stepper style ={{backgroundColor: '#fff8f9'}} activeStep={activeStep}>
           {steps.map((label, index) => {
             const props = {};
@@ -165,13 +177,10 @@ class HorizontalLinearStepper extends React.Component {
           })}
         </Stepper>
         <div>
-          {activeStep === steps.length ? (
-            <div>
-              <p>{this.state.city}</p>
-            </div>
-          ) : (
+
             <div>
               <Typography className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
+              <br/>
               <div>
                 <Button
                   disabled={activeStep === 0}
@@ -180,22 +189,37 @@ class HorizontalLinearStepper extends React.Component {
                 >
                   Back
                 </Button>
-                <Button
-                  variant="raised"
-                  color="secondary"
-                  onClick={this.handleNext}
-                  className={classes.button}
-                >
-                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-                </Button>
+                {this.state.confirmLoc === true ? 
+                (
+                  <Button
+                    variant="raised"
+                    color="secondary"
+                    onClick={this.handleNext}
+                    className={classes.button}
+                  >
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                  </Button>
+                ):
+                (
+                  <Button
+                    variant="raised"
+                    color="secondary"
+                    onClick={this.handleNext}
+                    className={classes.button}
+                    disabled
+                  >
+                    {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                  </Button>
+                )}
               </div>
             </div>
-          )}
+
         </div>
       </div>
-
       </div>
       </Paper>
+    )}       
+          
       </div>
       </MuiThemeProvider>
     );

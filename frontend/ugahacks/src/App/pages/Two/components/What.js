@@ -142,7 +142,7 @@ class What extends React.Component {
                       margin="normal"
                     >
                       {types.map(option => (
-                        <MenuItem style={{width:300}} key={option.value} value={option.value}>
+                        <MenuItem style={{width:300}} key={option.label} value={option.value}>
                           {option.label}
                         </MenuItem>
                       ))}

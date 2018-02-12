@@ -151,6 +151,7 @@ class HorizontalLinearStepper extends React.Component {
       let cuisine = this.state.CuisineID;
       let entityID = getCityID(latitude,longitude,cityName);
       console.log(entityID);
+      console.log(cuisine);
       getRestaurant(cuisine,'634','city');
 
       /***

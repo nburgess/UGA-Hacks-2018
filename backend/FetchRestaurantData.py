@@ -8,7 +8,7 @@ import requests
 textFile = open("output.txt", "w")
 
 
-APIKey = "ce84c151c3bbfe25dd4c8a29f9da5365"
+APIKey = ""
 
 p = Pyzomato(APIKey)
 

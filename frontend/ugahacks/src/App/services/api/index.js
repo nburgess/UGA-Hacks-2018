@@ -3,7 +3,7 @@ import 'es6-promise';
 import axios from 'axios';
 
 const DATA_URL = "https://developers.zomato.com/api/v2.1/search";
-const USER_KEY = "ce84c151c3bbfe25dd4c8a29f9da5365";
+const USER_KEY = "";
 
 function fetchZomato(offset, latitude, longitude, radius=1500) {
   const promise = axios.request({

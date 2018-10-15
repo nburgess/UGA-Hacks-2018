@@ -3,7 +3,7 @@ import Button from 'material-ui/Button';
 import PropTypes from 'prop-types';
 import zomato from 'zomato';
 
-const APIKey = 'ce84c151c3bbfe25dd4c8a29f9da5365';
+const APIKey = '';
 const url = "https://developers.zomato.com/api/v2.1/";
 
 //I will be phasing out this api key soon
@@ -30,7 +30,7 @@ class ZomatoSearch extends Component {
 
   //       let headers = new Headers();
   //       headers.append('Content-Type', 'application/json');
-  //       headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
+  //       headers.append('user-key', '');
   //       let options = {
   //         method: 'GET',
   //         headers: headers
@@ -78,7 +78,7 @@ export function getRestaurant(cuisineID, entityID, entityType, count = 5){
 
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
-  headers.append('user-key', 'ce84c151c3bbfe25dd4c8a29f9da5365');
+  headers.append('user-key', '');
   let options = {
     method: 'GET',
     headers: headers
